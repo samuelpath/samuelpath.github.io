@@ -1,29 +1,74 @@
 <script src="https://js.stripe.com/v3"></script>
+<script src="index.js"></script>
 
-<div id="error-message"></div>
+<!doctype html>
+<html lang="fr">
 
-<script>
-	(function() {
-    var stripe = Stripe('pk_live_51HN0vNC1ptgXJmK86W73269kqE5Hx6h7GnvnW0dLSk54gkwpL0JpEKQwo6TsQoUQxwvE7kfT5OaHrY7ZdtmHtt5y00SrEy8Ks8');
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HfVVVC1ptgXJmK8olOMoWYZ', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://www.doctolib.fr/cabinet-medical/lyon/cabinet-medical-de-l-opera',
-      cancelUrl: 'https://www.doctolib.fr/cabinet-medical/lyon/cabinet-medical-de-l-opera',
-      locale: 'fr'
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>⏱ Paiement consultation Dr Path-Laplagne</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
-    });
-  })();
-</script>
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="global.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">Dr Émilie PATH-LAPLAGNE 👩🏻‍⚕️</h3>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading">Redirection automatique ⏱</h1>
+      <p class="lead">Vous allez être automatiquement redirigé vers une page de paiement. <br>
+      Si rien ne passe, veuillez réessayer en cliquant ci-dessous 👇🏻.</p>
+      <p class="lead">
+        <a href="index.html" class="btn btn-lg btn-secondary">Réessayer 💳</a>
+      </p>
+      <div id="error-message"></div>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Retour au site du <a href="https://www.doctolib.fr/cabinet-medical/lyon/cabinet-medical-de-l-opera">cabinet
+            médical de l'Opéra</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
