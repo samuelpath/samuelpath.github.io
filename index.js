@@ -1,4 +1,4 @@
-(function() {
+setTimeout(function() {
   var stripe = Stripe('pk_live_51HN0vNC1ptgXJmK86W73269kqE5Hx6h7GnvnW0dLSk54gkwpL0JpEKQwo6TsQoUQxwvE7kfT5OaHrY7ZdtmHtt5y00SrEy8Ks8');
   stripe.redirectToCheckout({
     lineItems: [{price: 'price_1HfVVVC1ptgXJmK8olOMoWYZ', quantity: 1}],
@@ -20,4 +20,4 @@
       displayError.textContent = result.error.message;
     }
   });
-})();
+}, 2000);
