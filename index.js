@@ -9,7 +9,7 @@
     // Instead use one of the strategies described in
     // https://stripe.com/docs/payments/checkout/fulfill-orders
     successUrl: 'https://samuelpath.github.io/success',
-    cancelUrl: 'https://samuelpath.github.io/failure',
+    cancelUrl: 'https://samuelpath.github.io/cancel',
     locale: 'fr'
   })
   .then(function (result) {
